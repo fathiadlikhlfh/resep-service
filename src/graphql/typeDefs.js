@@ -1,6 +1,12 @@
 const { gql } = require("apollo-server-express");
 
 module.exports = gql`
+  type Pasien {
+    id: Int
+    nama: String
+    tanggal_lahir: String
+  }
+
   type Resep {
     id: ID!
     obat_id: Int
@@ -9,6 +15,7 @@ module.exports = gql`
     kunjungan_id: Int
     deskripsi: String
     dosis: String
+    pasien: Pasien
   }
 
   type Query {
