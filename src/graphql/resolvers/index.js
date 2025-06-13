@@ -36,5 +36,17 @@ module.exports = {
     createResep: async (_, args) => {
       return await Resep.create(args);
     },
+
+    deleteResep: async (_, { id }) => {
+      const deleted = await Resep.destroy({ where: { id } });
+      return deleted > 0;
+    },
+
+    updateResep: async (_, { id, deskripsi, dosis }) => {
+      const resep = await Resep.findByPk(id);
+      if (!resep) throw new Error("Resep tidak ditemukan");
+      await resep.update({ deskripsi, dosis });
+      return resep;
+    },
   },
 };

@@ -24,5 +24,9 @@ module.exports = gql`
 
   type Mutation {
     createResep(obat_id: Int!, nakes_id: Int!, pasien_id: Int!, kunjungan_id: Int!, deskripsi: String, dosis: String): Resep
+
+    updateResep(id: ID!, deskripsi: String, dosis: String): Resep
+
+    deleteResep(id: ID!): Boolean
   }
 `;
