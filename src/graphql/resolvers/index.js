@@ -8,7 +8,7 @@ module.exports = {
   Resep: {
     pasien: async (parent) => {
       try {
-        const res = await fetch("http://localhost:8003/graphql", {
+        const res = await fetch("http://localhost:8000/graphql", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
